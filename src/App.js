@@ -13,10 +13,6 @@ function App() {
     const setRealVh = () => {
       const vh = window.visualViewport?.height || window.innerHeight;
       document.documentElement.style.setProperty("--vh", `${vh * 0.01}px`);
-      document.documentElement.style.setProperty(
-        "--offset-title",
-        `${window.scrollY || document.documentElement.scrollTop}px`
-      );
     };
 
     setRealVh();
@@ -39,18 +35,18 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <MainSidebar 
-          collapsed={collapsed} 
-          setCollapsed={handleToggleSidebar} 
-          setHistoryChat={setHistoryChat} 
-          messages = {messages} 
-          setMessages={setMessages} 
+        <MainSidebar
+          collapsed={collapsed}
+          setCollapsed={handleToggleSidebar}
+          setHistoryChat={setHistoryChat}
+          messages={messages}
+          setMessages={setMessages}
         />
-        <ChatBox 
-          collapsed={collapsed} 
-          messages={messages[historyChat]} 
-          setMessages={setMessages} 
-          historyChat={historyChat} 
+        <ChatBox
+          collapsed={collapsed}
+          messages={messages[historyChat]}
+          setMessages={setMessages}
+          historyChat={historyChat}
         />
       </header>
     </div>

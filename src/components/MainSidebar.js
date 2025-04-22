@@ -18,27 +18,31 @@ export default function MainSidebar({ collapsed, setCollapsed, setHistoryChat, m
   }
 
   return (
-    <aside className={`sidebar ${collapsed ? "collapsed" : ""}`}>
-      <div className="sidebar-header" onClick={() => setCollapsed(!collapsed)}>
+    <div className={`left-side ${collapsed ? "collapsed" : ""}`}>
+      <div className={`sidebar-header ${collapsed ? "collapsed" : ""}`} onClick={() => setCollapsed(!collapsed)}>
         <FaBars size={16} />
         {!collapsed && <span className="logo">K-GPT</span>}
       </div>
-      <ul className="sidebar-menu">
+      <aside className={`sidebar ${collapsed ? "collapsed" : ""}`}>
 
-        {messages.map((_, index) => (
-          <li 
-            id={index} 
-            key={index} 
-            onClick={changeChat}
-            className={(selectedChat === index && !collapsed) ? "selected-chat-collapsed" : ""} 
-            
+        <ul className={`sidebar-menu ${collapsed ? "collapsed" : ""}`}>
+
+          {messages.map((_, index) => (
+            <li
+              id={index}
+              key={index}
+              onClick={changeChat}
+              className={(selectedChat === index && !collapsed) ? "selected-chat-collapsed" : ""}
+
             >
               {!collapsed && <span>chat {index + 1}</span>}
-          </li>
-        ))}
+            </li>
+          ))}
 
-        <li key={messages.size} onClick={addChat}><FaPlus/></li>
-      </ul>
-    </aside>
+          <li key={messages.size} onClick={addChat}><FaPlus /></li>
+        </ul>
+      </aside>
+    </div>
+
   );
 }

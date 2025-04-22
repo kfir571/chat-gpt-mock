@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  top: calc(0px + var(--offset-title));
 }
 
 .App-logo {
@@ -21,9 +20,7 @@
   font-size: 16px;
   color: white;
   min-height: 100dvh;
-  /* max-height: 100dvh; */
   height: calc(var(--vh, 1vh) * 100);
-  /* top: calc(0px + var(--offset-title)); */
 }
 
 .App-link {
@@ -50,9 +47,6 @@ body {
   transition: height 0.3s ease;
   width: 100%;
   padding-right: 1%;
-
-  /* min-height: 100dvh;   tray
-  max-height: 100dvh; */
 }
 
 .main-page.collapsed {
@@ -64,10 +58,7 @@ body {
   transition: height 0.3s ease;
   width: 100%;
   padding-right: 1%;
-  /* min-height: 100dvh;     tray
-  max-height: 100dvh; */
 }
-
 
 .message-list {
   flex: 1;
@@ -82,10 +73,7 @@ body {
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
   margin-top: 32px;
-  /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-  /* margin-right: 1.5%; */
   width: 100%;
-  /* height: calc(var(--vh, 1vh) * 100); */
   background-color: #282c34;
   font-size: 16px;
 }
@@ -123,7 +111,6 @@ body {
   padding-top: 8px;
   padding-bottom: 8px;
   width: 100%;
-
 }
 
 .input-buttons {
@@ -152,7 +139,6 @@ body {
   background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.6);
   color: rgb(142, 138, 138);
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -204,11 +190,106 @@ body {
   animation: spin 1s linear infinite;
 }
 
-.k-gpt {
+.left-side.collapsed{
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
   background: transparent;
+}
+
+.left-side {
+  background: linear-gradient(to right, rgba(50, 55, 65, 1), rgba(50, 55, 65, 0));
+}
+
+.sidebar {
+  position: relative;
+  width: 140px;
+  background-color: transparent;
+  color: white;
+  transition: width 0.3s ease;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  max-height: 90%;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+  color: transparent;
+}
+
+.sidebar-header {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 1rem;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 16px;
+  background-color: transparent;
+}
+
+.sidebar-header.collapsed {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 1rem;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 16px;
+  background: linear-gradient(to right, rgba(50, 55, 65, 0), rgba(50, 55, 65, 0));
+
+}
+
+.sidebar-header svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.logo {
+  font-weight: bold;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 1rem;
+  margin: 0;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.sidebar-menu li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.sidebar-menu li:hover {
+  background-color: #374151;
+}
+
+.sidebar-menu.collapsed li:hover {
+  background-color: transparent;
+  pointer-events: none;
+}
+
+.selected-chat-collapsed {
+  background-color: #374151;
+}
+
+.app-container {
+  display: flex;
 }
 
 @media (max-width: 600px) {
@@ -252,87 +333,4 @@ body {
   100% {
     transform: rotate(360deg);
   }
-}
-
-.sidebar {
-  position: relative;
-  direction: ltr;
-  left: 0;
-  width: 155px;
-  min-height: 100%;
-  background: linear-gradient(to right, rgba(50, 55, 65, 1), rgba(50, 55, 65, 0));
-  color: white;
-  transition: width 0.3s ease;
-  padding-top: 1rem;
-  overflow-y: scroll;
-  scrollbar-width: thin;
-  scrollbar-color: transparent transparent;
-}
-
-.sidebar.collapsed {
-  width: 60px;
-  background: linear-gradient(to right, rgba(50, 55, 65, 1), rgba(50, 55, 65, 0));
-}
-
-.sidebar-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 0 1rem;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 16px;
-}
-
-.sidebar-header svg {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-}
-
-.logo {
-  font-weight: bold;
-}
-
-.sidebar-menu {
-  list-style: none;
-  padding: 1rem;
-  margin: 0;
-}
-
-.sidebar-menu li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 0.75rem 1rem;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.sidebar-menu li:hover {
-  background-color: #374151;
-}
-
-.selected-chat-collapsed {
-  background-color: #374151;
-}
-
-.app-container {
-  display: flex;
-}
-
-.main-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  margin-left: 250px;
-  transition: margin-left 0.3s ease;
-  width: 100%;
-}
-
-.main-content.collapsed {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  margin-left: 64px;
 }
