@@ -1,3 +1,6 @@
+@import './styles/variables.css';
+
+
 .App {
   text-align: center;
 }
@@ -14,11 +17,11 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: var(--color-bg-main);
   display: flex;
   justify-content: left;
   font-size: 16px;
-  color: white;
+  color: var(--color-text-main);
   min-height: 100dvh;
   height: calc(var(--vh, 1vh) * 100);
 }
@@ -32,7 +35,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-color: #282c34;
+  background-color: var(--color-bg-main);
   overflow: hidden;
   position: relative;
   top: 0;
@@ -74,12 +77,12 @@ body {
   scrollbar-color: transparent transparent;
   margin-top: 32px;
   width: 100%;
-  background-color: #282c34;
+  background-color: var(--color-bg-main);
   font-size: 16px;
 }
 
 .message-item {
-  color: #000;
+  color: black;
   padding: 10px 14px;
   border-radius: 16px;
   max-width: 60%;
@@ -92,12 +95,12 @@ body {
 }
 
 .message-item.query {
-  background-color: #6cd0d4;
+  background-color: var(--color-bg-message-user);
   align-self: flex-end;
 }
 
 .message-item.response {
-  background-color: #c4eef0;
+  background-color: var(--color-bg-message-gpt);
   opacity: 0.9;
   align-self: flex-start;
 }
@@ -106,7 +109,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  background-color: #363940;
+  background-color: var(--color-bg-input-box);
   border-radius: 24px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -137,7 +140,7 @@ body {
   height: 40px;
   border-radius: 50%;
   background-color: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--color-border-btn);
   color: rgb(142, 138, 138);
   display: flex;
   align-items: center;
@@ -145,7 +148,7 @@ body {
 }
 
 #submit-btn {
-  background-color: #827f7f;
+  background-color: var(--color-submit-btn);
   border: 2px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   width: 40px;
@@ -157,7 +160,7 @@ body {
 }
 
 #submit-btn:hover {
-  background-color: #eaeaea;
+  background-color: var(--color-submit-hover);
   border-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -175,15 +178,11 @@ body {
   font-size: 16px;
   border: none;
   outline: none;
-  color: #bbbbbb;
+  color: var(--color-text-textarea);
   background-color: transparent;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
   resize: vertical;
-}
-
-.chat-input input::placeholder {
-  color: #bbbbbb;
 }
 
 .spinner {
@@ -198,14 +197,13 @@ body {
 }
 
 .left-side {
-  background: linear-gradient(to right, rgba(50, 55, 65, 1), rgba(50, 55, 65, 0));
+  background: var(--gradient-sidebar);
 }
 
 .sidebar {
   position: relative;
   width: 140px;
   background-color: transparent;
-  color: white;
   transition: width 0.3s ease;
   overflow-y: scroll;
   scrollbar-width: thin;
@@ -276,7 +274,7 @@ body {
 }
 
 .sidebar-menu li:hover {
-  background-color: #374151;
+  background-color: var(--color-hover-sidebar-selected);
 }
 
 .sidebar-menu.collapsed li:hover {
@@ -285,7 +283,7 @@ body {
 }
 
 .selected-chat-collapsed {
-  background-color: #374151;
+  background-color: var(--color-hover-sidebar-selected);
 }
 
 .app-container {

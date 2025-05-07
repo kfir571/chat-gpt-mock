@@ -6,7 +6,9 @@ import {
     FaGlobe,
     FaPlus,
     FaEllipsisH
-} from "react-icons/fa";
+} from "react-icons/fa";    
+import { TEXTS } from "../constants/texts";
+
 
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
@@ -47,7 +49,7 @@ function ChatInput({ onAddMessage, isLoading }) {
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={handleKeyDown}
-                    placeholder="What do you have in mind?"
+                    placeholder={TEXTS.textarea_placeholder}
                 />
 
             </form>

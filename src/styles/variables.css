@@ -1,0 +1,13 @@
+:root {
+    --color-bg-main: #282c34;
+    --color-bg-input-box: #363940;
+    --color-bg-message-user: #6cd0d4;
+    --color-bg-message-gpt: #c4eef0;
+    --color-text-main: white;
+    --color-text-textarea: #bbbbbb;
+    --color-border-btn: rgba(255, 255, 255, 0.6);
+    --color-submit-btn: #827f7f;
+    --color-submit-hover: #eaeaea;
+    --color-hover-sidebar-selected: #374151;
+    --gradient-sidebar: linear-gradient(to right, rgba(50, 55, 65, 1), rgba(50, 55, 65, 0));
+  }

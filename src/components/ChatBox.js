@@ -1,7 +1,8 @@
-import { useState/*, useRef */} from "react";
+import { useState } from "react";
 import MessageList from "./MessageList";
 import ChatInput from "./ChatInput";
 import { sendToGPTApi } from "../services/gptService";
+import { TEXTS } from "../constants/texts";
 
 function ChatBox({ collapsed, messages, setMessages, historyChat }) {
     const [isLoading, setIsLoading] = useState(false);
@@ -11,7 +12,7 @@ function ChatBox({ collapsed, messages, setMessages, historyChat }) {
             setIsLoading(true);
             setMessages((prevMessages) => {
                 const update = [...prevMessages];
-                update[historyChat] = [...update[historyChat], { type: "response", message: "thinking..." }];
+                update[historyChat] = [...update[historyChat], { type: "response", message: TEXTS.thinking }];
                 return update;
             });
             const gptResponse = await sendToGPTApi(queryText);
@@ -22,10 +23,10 @@ function ChatBox({ collapsed, messages, setMessages, historyChat }) {
                 return update;
             });
         } catch (error) {
-            console.error("Error sending message to GPT:", error);
+            console.error(TEXTS.error_gpt_send, error);
             setMessages((prevMessages) => {
                 const update = [...prevMessages];
-                update[historyChat] = [...update[historyChat].slice(0, -1), { type: "response", message: "Error Send To GPT" }];
+                update[historyChat] = [...update[historyChat].slice(0, -1), { type: "response", message: TEXTS.error_gpt_send }];
                 return update;
             });
         }
