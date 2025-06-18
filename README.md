@@ -2,7 +2,7 @@
 
 A simple and modern chat mock built with React — featuring multi-chat history support, dynamic UI, and simulated GPT API interaction.
 
-Live Demo: [chatgpt-mock.netlify.app](https://680526cdd108fd67f46c738c--k-gpt.netlify.app/)
+Live Demo: [chatgpt-mock.netlify.app](https://k-gpt.netlify.app/)
 
 ---
 
